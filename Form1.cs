@@ -59,7 +59,7 @@ namespace WinFormsApp1
                 // Tạo nội dung
                 string randomContent = $"{author} {verb} {topic} {icon}";
 
-                // TẠO THỜI GIAN NGẪU NHIÊN (Logic 60/40 của bạn)
+                // TẠO THỜI GIAN NGẪU NHIÊN
                 TimeSpan timeRange = (rnd.Next(100) < 60) ? (now - startDate) : (now - startDate) * 0.4;
                 int randomMinutes = rnd.Next(0, (int)timeRange.TotalMinutes);
                 DateTime randomPostTime = now.AddMinutes(-randomMinutes);
