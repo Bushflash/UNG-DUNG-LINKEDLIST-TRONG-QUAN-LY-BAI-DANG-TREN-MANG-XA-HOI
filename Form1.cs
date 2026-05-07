@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace WinFormsApp1 // Đảm bảo tên này khớp với tên Project của bạn
+namespace WinFormsApp1 
 {
     public partial class Form1 : Form
     {
