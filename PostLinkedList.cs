@@ -235,7 +235,8 @@ namespace WinFormsApp1
             LikeGiam,
             LikeTang,
             ContentAtoiZ,
-            TheoId,
+            TheoIdTang,
+            TheoIdGiam
         }
         public void Sort(Tieuchisort Tieuchi)
         {
@@ -313,6 +314,10 @@ namespace WinFormsApp1
                 case Tieuchisort.ContentAtoiZ:
                     {
                         return string.Compare(a.Content, b.Content, StringComparison.OrdinalIgnoreCase) <= 0;
+                    }
+                case Tieuchisort.TheoIdGiam:
+                    {
+                        return a.PostId.CompareTo(b.PostId) >= 0;
                     }
                 default:
                     {

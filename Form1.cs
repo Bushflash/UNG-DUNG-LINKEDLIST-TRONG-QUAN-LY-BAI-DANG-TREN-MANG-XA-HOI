@@ -133,7 +133,7 @@ namespace WinFormsApp1
             // Hàng 3: Sắp Xếp
             Label lbl4 = new Label { Text = "Sắp xếp:", Location = new Point(10, 163), AutoSize = true };
             _cmbSort = new ComboBox { Location = new Point(70, 160), Width = 150, DropDownStyle = ComboBoxStyle.DropDownList };
-            _cmbSort.Items.AddRange(new[] { "Ngày Đăng (Giảm)", "Ngày Đăng (Tăng)", "Lượt Like (Giảm)", "ID Bài (A-Z)" });
+            _cmbSort.Items.AddRange(new[] { "Ngày Đăng (Giảm)", "Ngày Đăng (Tăng)", "Lượt Like (Giảm)", "Lượt Like (Tăng)", "ID Bài (Giảm)", "ID Bài (Tăng)", "A-Z" });
             _cmbSort.SelectedIndex = 0;
             _btnSort = MakeButton("🔃 Sort", new Point(230, 158), 100, Color.FromArgb(102, 51, 153));
             _btnSort.Click += BtnSort_Click;
@@ -305,7 +305,11 @@ namespace WinFormsApp1
             if (idx == 0) _feed.Sort(PostLinkedList.Tieuchisort.NgayDangGiam);
             else if (idx == 1) _feed.Sort(PostLinkedList.Tieuchisort.NgayDangTang);
             else if (idx == 2) _feed.Sort(PostLinkedList.Tieuchisort.LikeGiam);
-            else _feed.Sort(PostLinkedList.Tieuchisort.TheoId);
+            else if (idx == 3) _feed.Sort(PostLinkedList.Tieuchisort.LikeTang);
+            else if (idx == 4) _feed.Sort(PostLinkedList.Tieuchisort.TheoIdGiam);
+            else if (idx == 5) _feed.Sort(PostLinkedList.Tieuchisort.TheoIdTang);
+            else if (idx == 6) _feed.Sort(PostLinkedList.Tieuchisort.ContentAtoiZ);
+            else _feed.Sort(PostLinkedList.Tieuchisort.TheoIdTang);
 
             Log($"[Sắp Xếp] Hoàn tất Merge Sort theo tiêu chí: {_cmbSort.Text}");
             RefreshGrid(_feed.GetAllPosts());
