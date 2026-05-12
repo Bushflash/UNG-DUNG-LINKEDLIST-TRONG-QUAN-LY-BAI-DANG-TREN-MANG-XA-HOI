@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -38,6 +39,10 @@ namespace WinFormsApp1
         // GIẢ LẬP DỮ LIỆU TỰ ĐỘNG
         private void TaoDuLieuMau()
         {
+            //timing
+            //Stopwatch sw = new Stopwatch();
+            //sw.Start();
+
             Random rnd = new Random();
             string[] authors = { "UEH_Student", "K51_Finance", "Dev_CSharpVN", "GamerVietPro", "Busch", "Admin_UEH", "EconomicsBuff" };
             string[] verbs = { "đang học", "vừa hoàn thành", "đang tìm hiểu sâu", "rất hào hứng với", "mới thử nghiệm" };
@@ -80,6 +85,8 @@ namespace WinFormsApp1
                     };
                 }
             }
+            //sw.Stop();
+            //Log($"[Benchmark] Thời gian nạp 1,000 bài mẫu: {sw.Elapsed.TotalMilliseconds} ms");
             Log("🚀 Đã khởi tạo 1000 bài đăng 2026 với phân bổ Like và Thời gian thực tế!");
         }
 
@@ -302,6 +309,7 @@ namespace WinFormsApp1
         private void BtnSort_Click(object sender, EventArgs e)
         {
             int idx = _cmbSort.SelectedIndex;
+
             if (idx == 0) _feed.Sort(PostLinkedList.Tieuchisort.NgayDangGiam);
             else if (idx == 1) _feed.Sort(PostLinkedList.Tieuchisort.NgayDangTang);
             else if (idx == 2) _feed.Sort(PostLinkedList.Tieuchisort.LikeGiam);
@@ -312,6 +320,7 @@ namespace WinFormsApp1
             else _feed.Sort(PostLinkedList.Tieuchisort.TheoIdTang);
 
             Log($"[Sắp Xếp] Hoàn tất Merge Sort theo tiêu chí: {_cmbSort.Text}");
+            
             RefreshGrid(_feed.GetAllPosts());
         }
     }
